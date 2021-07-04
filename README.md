@@ -10,7 +10,7 @@ we will be starting the process of creating an e-Commerce storefront using React
 
 [Pull Requests](https://github.com/yasmeenokh/storefront/pulls)
 
-[Deployed Link]()
+[Deployed Link](https://optimistic-bhaskara-fef139.netlify.app/)
 
 ## White Board:
 
