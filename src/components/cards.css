@@ -1,0 +1,12 @@
+.cardDiv{
+    margin-left: 15%;
+    width: 70%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.MuiPaper-root.MuiCard-root.makeStyles-root-4.MuiPaper-elevation1.MuiPaper-rounded{
+    margin-bottom: 5%;
+}
