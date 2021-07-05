@@ -72,10 +72,10 @@ const productsReducer = (state = initialState, action)=>{
     let {type, payload}= action;
     switch(type){
         case 'ACTIVE':
-            let products = state.products.filter((product)=> 
+            let products = initialState.products.filter((product)=> 
                 product.category === payload? product.category : null
         );
-            return{products, count: state.count};
+        return{products, count: state.count};
         case 'INCREMENT': 
         const count = state.count + 1 ;
         return {products, count: state.count}
