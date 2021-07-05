@@ -43,7 +43,7 @@ export default function BottomAppBar() {
   return (
     <React.Fragment>
       <CssBaseline />
-      <AppBar position="fixed" color="primary" className={classes.appBar}>
+      <AppBar position="static" color="primary" className={classes.appBar}>
         <Toolbar>
         © 2021 Javascript 401        
         </Toolbar>
