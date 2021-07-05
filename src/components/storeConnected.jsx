@@ -2,6 +2,8 @@ import { connect } from 'react-redux';
 import { Container, Typography, makeStyles } from '@material-ui/core';
 import Categories from './categories';
 import Products from './products';
+import Cart from './cart';
+import './connected.css'
 
 const useStyles = makeStyles((theme) => ({
   heroContent: {
@@ -20,10 +22,13 @@ const Store = (props) => {
   return (
     <main>
       <div>
-        <Container>
+        <Container >
+          <div className="heroDiv">
+          <Cart/>
           <Categories />
           <br />
           <br />
+          </div>
           <Typography
             component="h3"
             variant="h4"
@@ -45,7 +50,7 @@ const Store = (props) => {
           </Typography>
         </Container>
       </div>
-      <Products className="main" />
+      <Products/>
     </main>
   );
 };

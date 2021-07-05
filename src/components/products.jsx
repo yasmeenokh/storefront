@@ -1,4 +1,5 @@
 import { connect } from "react-redux";
+import {add } from '../store/cartReducer'
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
@@ -25,7 +26,11 @@ const Products= (props) => {
   return (
       <>
       <div className='cardDiv'>
-      {props.productsList.products.map((element)=>{
+        {console.log('kkkkkkkkk',props.productsList)}
+      {props.productsList.map((element)=>{
+        if(element.availableQuantity === 0){
+          return;
+        }
           return(
     <Card className={classes.root}>
       <CardActionArea>
@@ -44,9 +49,12 @@ const Products= (props) => {
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button size="small" color="primary">
+        <Button size="small" color="primary"
+        onClick={()=> props.add(element)}
+        >
           Add To Cart
         </Button>
+          {console.log('afterAddition', props.productsList)}
         <Button size="small" color="primary">
           Learn More
         </Button>
@@ -61,7 +69,7 @@ const Products= (props) => {
 }
 
 const mapStateToProps = (state)=>({
-    productsList : state.productsReducer
+    productsList : state.productsReducer.products
 });
-
-export default connect(mapStateToProps)(Products)
+const mapDispatchToProps = {add};
+export default connect(mapStateToProps, mapDispatchToProps)(Products)

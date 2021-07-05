@@ -5,9 +5,22 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import useScrollTrigger from '@material-ui/core/useScrollTrigger';
-import Box from '@material-ui/core/Box';
-import Container from '@material-ui/core/Container';
 import Slide from '@material-ui/core/Slide';
+import Cart from './cart';
+import { connect } from "react-redux";
+
+
+import Badge from "@material-ui/core/Badge";
+import { withStyles } from "@material-ui/core/styles";
+
+const StyledBadge = withStyles((theme) => ({
+  badge: {
+    right: -3,
+    top: 13,
+    border: `2px solid ${theme.palette.background.paper}`,
+    padding: "0 4px",
+  },
+}))(Badge);
 
 function HideOnScroll(props) {
   const { children, window } = props;
@@ -32,7 +45,7 @@ HideOnScroll.propTypes = {
   window: PropTypes.func,
 };
 
-export default function Header(props) {
+const Header= (props)=> {
   return (
     <React.Fragment>
       <CssBaseline />
@@ -40,6 +53,14 @@ export default function Header(props) {
         <AppBar >
           <Toolbar>
             <Typography variant="h6" style={{marginLeft: '45%'}}>OUR STORE</Typography>
+          {console.log('uuuuuuuu',props.shoppingCart)}
+          <Typography variant="h6" style={{marginLeft: '40%'}}>Cart</Typography>
+          <StyledBadge
+        badgeContent={props.shoppingCart.cart.length}
+        color="secondary"
+        >
+        {/* <Cart /> */}
+      </StyledBadge>
           </Toolbar>
         </AppBar>
       </HideOnScroll>
@@ -48,3 +69,8 @@ export default function Header(props) {
     </React.Fragment>
   );
 }
+
+const mapStateToProps = (state)=>({
+  shoppingCart: state.cartReducer
+});
+export default connect(mapStateToProps)(Header);
