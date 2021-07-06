@@ -86,18 +86,29 @@ const productsReducer = (state = initialState, action)=>{
         return {products};
 
         case 'ADD' :
-            let newList = state.products.map((element)=>{
-                if(element.name === payload.name){
-                    if(payload.availableQuantity > 0){
-                        element.availableQuantity --;
-                    }
+            let newList = state.products.map((element)=>
+                // if(element.name === payload.name){
+                //     if(payload.availableQuantity > 0){
+                //         element.availableQuantity --;
+                //     }
+                // }
+                // return element;
+                element.name === payload.name ? {
+
+                    id: element.id,
+                    name : element.name,
+                    category : element.category,
+                    url : element.url,
+                    price : element.price,
+                    availableQuantity : element.availableQuantity -1,
+                    inCart: element.inCart + 1 
                 }
-                return element;
-            });
-            return {...state, cartList : newList};
+                : element
+            );
+            return {products: newList};
         
         case 'REMOVE' :
-            let listAfter = state.cartList.map((element)=>{
+            let listAfter = state.products.map((element)=>{
                 if(element.name === payload.name){
                     element.availableQuantity = element.availableQuantity + element.inCart
                 }
