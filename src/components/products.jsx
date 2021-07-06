@@ -1,5 +1,7 @@
 import { connect } from "react-redux";
-import {add } from '../store/cartReducer'
+import {updateRemoteData } from '../store/actions'
+import {getRemoteData } from '../store/actions'
+import { useDispatch } from "react-redux";
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
@@ -10,6 +12,8 @@ import CardMedia from "@material-ui/core/CardMedia";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import './cards.css'
+import { useEffect } from 'react';
+
 
 const useStyles = makeStyles({
   root: {
@@ -22,17 +26,20 @@ const useStyles = makeStyles({
 
 const Products= (props) => {
   const classes = useStyles();
+  useEffect(()=>{
+    props.getRemoteData();
+  },[])
 
   return (
       <>
       <div className='cardDiv'>
         {console.log('kkkkkkkkk',props.productsList)}
-      {props.productsList.map((element)=>{
+      {props.productsList.map((element, idx)=>{
         if(element.availableQuantity === 0){
           return;
         }
           return(
-    <Card className={classes.root}>
+    <Card className={classes.root} key={idx}>
       <CardActionArea>
         <CardMedia
           className={classes.media}
@@ -50,7 +57,7 @@ const Products= (props) => {
       </CardActionArea>
       <CardActions>
         <Button size="small" color="primary"
-        onClick={()=> props.add(element)}
+        onClick={()=> props.updateRemoteData(element)}
         >
           Add To Cart
         </Button>
@@ -71,5 +78,5 @@ const Products= (props) => {
 const mapStateToProps = (state)=>({
     productsList : state.productsReducer.products
 });
-const mapDispatchToProps = {add};
+const mapDispatchToProps = {updateRemoteData, getRemoteData };
 export default connect(mapStateToProps, mapDispatchToProps)(Products)
