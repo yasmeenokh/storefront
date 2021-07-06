@@ -2,7 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
-import { activateCategory} from '../store/categoriesReducer';
+import { activateCategory} from '../store/actions';
+// import { useEffect } from 'react';
+import { getRemoteData } from '../store/actions';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -34,7 +36,7 @@ const mapStateToProps = (state) =>({
     activeCat : state.categoriesReducer,
 });
 
-const mapDispatchToProps = {activateCategory};
+const mapDispatchToProps = {activateCategory, getRemoteData};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Category);
 

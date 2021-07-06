@@ -19,28 +19,13 @@ let initialState = {
 const categoriesReducer =(state= initialState, action)=>{
     let {type, payload}= action;
     switch(type){
+        
         case 'ACTIVE':
-            let activeCategory = state.categories.find((category)=> category.name === payload);
-            return {categories : state.categories, activeCategory}
-        case 'RESET':
-            return initialState
+            let activeCategory = initialState.categories.find((category)=> category.name === payload);
+            return {categories : initialState.categories, activeCategory}
         default:
             return state;
     }
 }
-
-
-// action which will have a type and payload(date)
-export const activateCategory = (name)=>{
-    return{
-        type : 'ACTIVE',
-        payload : name,
-    };
-};
-export const rest = ()=>{
-    return{
-        type : 'RESET',
-    };
-};
 
 export default categoriesReducer;

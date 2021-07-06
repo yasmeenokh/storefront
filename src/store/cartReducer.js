@@ -12,7 +12,7 @@ const cartReducer = (state = initialState, action)=>{
                 state.cart.push(payload);
                 payload.count = 1
             }
-           else if(payload.availableQuantity > 0){
+            if(payload.availableQuantity > 0){
                 state.cart.push(payload);
                 payload.count +1;
             }
@@ -28,18 +28,12 @@ const cartReducer = (state = initialState, action)=>{
 }
 
 
-export const add=(item)=>{
-    return{
-        type : 'ADD',
-        payload: item,
-    }
-}
+// export const add=(item)=>{
+//     return{
+//         type : 'ADD',
+//         payload: item,
+//     }
+// }
 
-export const remove=(item)=>{
-    return{
-        type : 'REMOVE',
-        payload: item,
-    }
-}
 
 export default cartReducer;

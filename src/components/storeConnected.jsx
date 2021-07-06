@@ -16,9 +16,7 @@ const useStyles = makeStyles((theme) => ({
 
 const Store = (props) => {
   const classes = useStyles();
-  let category = props.activeCategory.activeCategory.displayName;
-  let description =
-    props.activeCategory.activeCategory.description;
+  // let category = props.activeCategory.displayName;
   return (
     <main>
       <div>
@@ -36,7 +34,7 @@ const Store = (props) => {
             color="textPrimary"
             mt="3"
           >
-            {category}
+            {props.activeCategory.displayName}
           </Typography>
           <br />
           <Typography
@@ -46,7 +44,7 @@ const Store = (props) => {
             color="textSecondary"
             gutterBottom
           >
-            {description}
+            {props.activeCategory.description}
           </Typography>
         </Container>
       </div>

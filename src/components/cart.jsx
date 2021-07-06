@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import { remove } from '../store/cartReducer';
+import { removeRemoteData } from '../store/actions';
+
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import PopupState, { bindTrigger, bindMenu } from "material-ui-popup-state";
@@ -24,7 +25,7 @@ const Cart = (props) => {
                     <>
                       <MenuItem>
                         {item.name} &nbsp;{" "}
-                        <BackspaceIcon onClick={() => props.remove(item)} />
+                        <BackspaceIcon onClick={() => props.removeRemoteData(item)} />
                       </MenuItem>
                     </>
                   );
@@ -40,7 +41,7 @@ const Cart = (props) => {
 const mapStateToProps = (state)=>({
     cart : state.cartReducer,
 })
-const mapDispatchToProps = {remove};
+const mapDispatchToProps = {removeRemoteData};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Cart);
 

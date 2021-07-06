@@ -26,4 +26,13 @@ Phase 2: Continue work on the e-Commerce storefront, breaking up the store into 
 
 ### White Board:
 
-![first](images/lab37.png)
+![second](images/lab37.png)
+
+## Third Phase : 
+
+### Description:
+Phase 3: Connect the Virtual Store to an API to retrieve live data from your data source, using thunk to enable asynchronous actions
+
+### White Board:
+
+![third](images/lab38.png)
