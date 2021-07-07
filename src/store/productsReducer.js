@@ -6,16 +6,22 @@ let initialState = {
 const productsReducer = (state = initialState, action)=>{
     let {type, payload}= action;
     switch(type){
-        case 'GET': 
-        return{
-            products: payload,
+        case 'GET':
+            initialState.products = payload; 
+            // state
+            return  {
+                products: payload,
             cartList : [],
-        }
+    }
+        
         case 'ACTIVE':             
-            let products = state.products.filter((product)=> {
+            let products = initialState.products.filter((product)=> {
                 return product.category === payload? product.category : null
             }
         );
+        console.log('PRODUCTSS', products)
+        console.log('INITIALSTATE', initialState.products)
+
         return {...initialState, products};
         case 'ADD' :
             let newList = state.products.map((element)=>
@@ -26,11 +32,12 @@ const productsReducer = (state = initialState, action)=>{
                     url : element.url,
                     price : element.price,
                     availableQuantity : element.availableQuantity -1,
-                    inCart: element.inCart + 1 
+                    inCart: element.inCart++,
                 }
                 : element
             );
-            return {products: newList};
+            return {...state, product: newList}
+            // {products: newList};
         
         case 'REMOVE' :
             let listAfter = state.products.map((element)=>{

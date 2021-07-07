@@ -1,11 +1,14 @@
 import superagent from 'superagent';
 
-const API = 'https://yasmeen-api-server.herokuapp.com/api/v1/products';
+const API = 
+// 'https://api-js401.herokuapp.com/api/v1/products'
+'https://yasmeen-api-server.herokuapp.com/api/v1/products';
 
 export const getRemoteData = () => (dispatch, state)=>{
     superagent.get(API).then(
         response=> {
             dispatch(getAction(response.body));
+            console.log('RESPONSE====>', response.body )
         }
     )
 };
@@ -13,7 +16,7 @@ export const getRemoteData = () => (dispatch, state)=>{
 export const updateRemoteData = (item) => (dispatch, state)=>{
     superagent.put(`${API}/${item._id}`).send({
         availableQuantity : item.availableQuantity -1,
-        inCart : item.inCart +1,
+        inCart : item.inCart++,
     })
     .then(
         response=> {
