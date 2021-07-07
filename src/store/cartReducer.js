@@ -12,10 +12,10 @@ const cartReducer = (state = initialState, action)=>{
                 state.cart.push(payload);
                 payload.count = 1
             }
-            if(payload.availableQuantity > 0){
-                state.cart.push(payload);
-                payload.count +1;
-            }
+            // if(payload.availableQuantity > 0){
+            //     state.cart.push(payload);
+            //     payload.count +1;
+            // }
             return {...state};
 
         case 'REMOVE':
