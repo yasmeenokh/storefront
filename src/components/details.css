@@ -1,0 +1,19 @@
+.MuiPaper-root.MuiCard-root.details.MuiPaper-elevation1.MuiPaper-rounded{
+    display: flex;
+    flex-direction: column;
+    /* flex-wrap: wrap; */
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+    margin-top: 3%;
+    margin-bottom: 2%;
+    margin-left: 35%;
+}
+
+div#root{
+    text-align: center;
+}
+
+.feedBack{
+    margin-bottom: 2%;
+}

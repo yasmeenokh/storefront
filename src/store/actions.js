@@ -37,6 +37,20 @@ export const removeRemoteData = (item) => (dispatch, state)=>{
     )
 };
 
+export const showDetails = (item)=> (dispatch, state)=>{
+    superagent.get(`${API}/${item._id}`).send({
+        name : item.name,
+        category : item.category,
+        url : item.url,
+        price : item.price,
+        availableQuantity : item.availableQuantity
+    })
+    .then(
+        response=>{
+            dispatch(getAction(response.body))
+        }
+    )
+}
 
 
 
