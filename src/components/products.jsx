@@ -53,6 +53,9 @@ const Products= (props) => {
           <Typography variant="body2" color="textSecondary" component="p">
            Price : {element.price}
           </Typography>
+          <Typography variant="body2" color="textSecondary" component="p">
+          Quantity : {element.availableQuantity}
+          </Typography>
         </CardContent>
       </CardActionArea>
       <CardActions>
