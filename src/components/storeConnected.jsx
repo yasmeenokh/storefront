@@ -4,6 +4,8 @@ import Categories from './categories';
 import Products from './products';
 import Cart from './cart';
 import './connected.css'
+import './cards.css'
+
 
 const useStyles = makeStyles((theme) => ({
   heroContent: {

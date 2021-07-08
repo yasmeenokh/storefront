@@ -1,0 +1,12 @@
+.formDIV{
+    margin-top: 5%;
+    margin-bottom: 5%;
+    margin-left: 27%;
+    min-height: 30vh;
+    width: 45%;
+}
+
+.MuiPaper-root.MuiPaper-elevation10.MuiPaper-rounded{
+    width: 100%;
+    padding: 5%;
+}

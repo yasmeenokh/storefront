@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
-import {updateRemoteData } from '../store/actions'
+import {updateRemoteData, showDetails } from '../store/actions'
 import {getRemoteData } from '../store/actions'
-import { useDispatch } from "react-redux";
+// import { useSelector,useDispatch } from "react-redux";
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
@@ -13,6 +13,9 @@ import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import './cards.css'
 import { useEffect } from 'react';
+import { Link } from "react-router-dom";
+
+
 
 
 const useStyles = makeStyles({
@@ -62,9 +65,15 @@ const Products= (props) => {
           Add To Cart
         </Button>
           {console.log('afterAddition', props.productsList)}
-        <Button size="small" color="primary">
+        {/* <Button size="small" color="primary">
           Learn More
+        </Button> */}
+        <Link to={`/product/${element._id}`}>
+        <Button size="small" color="primary" 
+        // onClick={()=> props.showDetails(element._id)}
+        >View Details
         </Button>
+        </Link>
       </CardActions>
     </Card>
           )
@@ -80,3 +89,4 @@ const mapStateToProps = (state)=>({
 });
 const mapDispatchToProps = {updateRemoteData, getRemoteData };
 export default connect(mapStateToProps, mapDispatchToProps)(Products)
+        

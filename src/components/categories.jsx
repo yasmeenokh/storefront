@@ -39,8 +39,3 @@ const mapStateToProps = (state) =>({
 const mapDispatchToProps = {activateCategory, getRemoteData};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Category);
-
-
-
-
-

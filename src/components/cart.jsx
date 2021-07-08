@@ -44,4 +44,3 @@ const mapStateToProps = (state)=>({
 const mapDispatchToProps = {removeRemoteData};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Cart);
-

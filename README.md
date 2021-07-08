@@ -36,3 +36,12 @@ Phase 3: Connect the Virtual Store to an API to retrieve live data from your dat
 ### White Board:
 
 ![third](images/lab38.png)
+
+## Forth Phase : 
+
+### Description:
+Phase 4: Complete work on the Virtual Store by adding detail pages for individual products as well as the the cart checkout page.
+
+### White Board:
+
+![forth](images/lab39.png)

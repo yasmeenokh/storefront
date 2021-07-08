@@ -8,6 +8,7 @@ import useScrollTrigger from '@material-ui/core/useScrollTrigger';
 import Slide from '@material-ui/core/Slide';
 import Cart from './cart';
 import { connect } from "react-redux";
+import { Link } from 'react-router-dom';
 
 
 import Badge from "@material-ui/core/Badge";
@@ -52,9 +53,15 @@ const Header= (props)=> {
       <HideOnScroll {...props}>
         <AppBar >
           <Toolbar>
-            <Typography variant="h6" style={{marginLeft: '45%'}}>OUR STORE</Typography>
+            <Typography variant="h6" style={{marginLeft: '45%'}}>
+              <Link to='/'>OUR STORE</Link>
+              </Typography>
+  
           {console.log('uuuuuuuu',props.shoppingCart)}
-          <Typography variant="h6" style={{marginLeft: '40%'}}>Cart</Typography>
+          <Typography variant="h6" style={{marginLeft: '40%'}}>
+            
+          <Link to='/cart'>Cart</Link>
+          </Typography>
           <StyledBadge
         badgeContent={props.shoppingCart.cart.length}
         color="secondary"
